@@ -16,7 +16,7 @@ namespace POS_System.DB
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Configure one-to-many relationship between Category and Product
+            // one-to-many relationship between category and product
             modelBuilder.Entity<Product>()
                 .HasOne(p => p.Category)
                 .WithMany(c => c.Products)

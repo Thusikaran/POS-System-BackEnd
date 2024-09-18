@@ -3,32 +3,32 @@ using POS_System.DB;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// add services  container
 builder.Services.AddControllersWithViews()
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
     });
 
-// Configure the CORS policy to allow all origins
+// Allow  any origin , header and  method(curd)
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll",
         policy =>
         {
-            policy.AllowAnyOrigin()  // Allow any origin
-                  .AllowAnyHeader()  // Allow any header
-                  .AllowAnyMethod(); // Allow any method (GET, POST, PUT, DELETE, etc.)
+            policy.AllowAnyOrigin()  
+                  .AllowAnyHeader()  
+                  .AllowAnyMethod(); 
         });
 });
 
-// Add DbContext and database connection
+// database connection
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// configure HTTP request 
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -40,7 +40,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// Enable the CORS policy to allow all origins
+//  allow all origins
 app.UseCors("AllowAll");
 
 app.UseAuthorization();

@@ -14,6 +14,7 @@ namespace POS_System.Controllers
             _db = db;
         }
 
+        // create category 
         [HttpPost]
         [Route("CreateCategory")]
         public IActionResult CreateCategory([FromBody]Category category)
@@ -23,6 +24,7 @@ namespace POS_System.Controllers
             return Ok(category);
         }
 
+        // get a category using Id
         [HttpGet]
         [Route("GetCategoryById")]
         public IActionResult GetCategoryById(int id)
@@ -31,6 +33,7 @@ namespace POS_System.Controllers
             return Ok(category);
         }
 
+        // get all Category
         [HttpGet]
         [Route("GetAllCategories")]
         public IActionResult GetAllCategory()
@@ -40,6 +43,7 @@ namespace POS_System.Controllers
             return Ok(categories);
         }
 
+        //update category
         [HttpPut]
         [Route("UpdateCategory")]
         public IActionResult UpdateCategory(Category category)
@@ -49,6 +53,7 @@ namespace POS_System.Controllers
                 return Ok(category);
         }
 
+        // delete category
         [HttpDelete]
         [Route("DeleteCategory")]
         public IActionResult DeleteCategory(int id)

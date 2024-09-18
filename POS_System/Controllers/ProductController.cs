@@ -14,6 +14,7 @@ namespace POS_System.Controllers
             _db = db;
         }
 
+        // create product
         [HttpPost]
         [Route("CreateProduct")]
         public IActionResult CreateProduct([FromBody]Product product)
@@ -23,6 +24,7 @@ namespace POS_System.Controllers
                return Ok(product);
         }
 
+        //get a product by Id
         [HttpGet]
         [Route("GetProductById")]
         public IActionResult GetProductById(int id)
@@ -31,6 +33,7 @@ namespace POS_System.Controllers
             return Ok(product);
         }
 
+        // get all products
         [HttpGet]
         [Route("GetAllProducts")]
         public IActionResult GetAllProduct()
@@ -40,6 +43,7 @@ namespace POS_System.Controllers
             return Ok(products);
         }
 
+        // update product
         [HttpPut]
         [Route("UpdateProduct")]
         public IActionResult UpdateProduct(Product product) 
@@ -49,6 +53,7 @@ namespace POS_System.Controllers
             return Ok(product);
         }
 
+        // delete product
         [HttpDelete]
         [Route("DeleteProduct")]
         public IActionResult DeleteProduct(int id)
